@@ -1,1 +1,1 @@
-# regression-exercises
+# Supervised Machine Learning - Regression
