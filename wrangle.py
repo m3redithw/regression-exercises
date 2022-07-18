@@ -51,13 +51,17 @@ def get_zillow_data():
     
 def wrangle_zillow(df):
     
-    # Renameing columns
+    # Renaming columns
     df.rename(columns = {'bedroomcnt':'bedrooms'}, inplace = True)
     df.rename(columns = {'bathroomcnt':'bathrooms'}, inplace = True)
     df.rename(columns = {'calculatedfinishedsquarefeet':'square_feet'}, inplace = True)
     df.rename(columns = {'taxvaluedollarcnt':'tax_assessed_value'}, inplace = True)
     df.rename(columns = {'taxamount':'tax_amount'}, inplace = True)
     df.rename(columns = {'fips':'fips_code'}, inplace = True)
+    df.rename(columns = {'yearbuilt':'year_built'}, inplace = True)
+    
+    # Converting data types
+    df.year_built= df.year_built.astype('int')
     df = df.dropna()
     return df
     
