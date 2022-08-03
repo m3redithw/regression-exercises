@@ -13,7 +13,7 @@ def prep_zillow(df):
 
     # Handle null values for pool
     df.has_pool = df.has_pool.replace(np.nan, 0)
-    # Drop outliers
+    # Drop missing values
     df = df.dropna()
     
     # Change data type
@@ -59,7 +59,7 @@ def prep_zillow(df):
 
 def split(df):
     '''
-    This function drops the customer_id column and then splits a dataframe into 
+    This function splits a dataframe into 
     train, validate, and test in order to explore the data and to create and validate models. 
     It takes in a dataframe and contains an integer for setting a seed for replication. 
     Test is 20% of the original dataset. The remaining 80% of the dataset is 
